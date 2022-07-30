@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Опросы{% endblock %}
+{%  block nav %}
+{% endblock %}
+{% block content %}
+    <br/><h3>Все опросы:</h3><br/>
+    <div class="row">
+    {% for poll in polls %}
+    <div class="col-12 col-md-6 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ poll.question }}</h4>
+                        <h6>{{ poll.created_at }}</h6>
+                        <a href="{% url "detail_polls_view" poll.pk %}" class="btn btn-info" tabindex="-1" role="button"
+                           aria-disabled="true">Просмотреть</a>
+                    </div>
+                </div>
+            </div>
+{% endfor %}
+    {% if is_paginated %}
+        {% include "partial/pagination.html" %}
+    {% endif %}
+    </div>
+{% endblock %}

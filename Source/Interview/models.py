@@ -17,7 +17,7 @@ class Poll(models.Model):
 
 class Choice(models.Model):
     option = models.TextField(max_length=100, verbose_name='Вариант ответа')
-    interview = models.ForeignKey('Interview.Poll', related_name='Poll', on_delete=CASCADE, verbose_name='Опрос')
+    interview = models.ForeignKey('Interview.Poll', related_name='For_polls', on_delete=CASCADE, verbose_name='Опрос')
 
     def __str__(self):
         return f"{self.id}. {self.option}: {self.interview}"
