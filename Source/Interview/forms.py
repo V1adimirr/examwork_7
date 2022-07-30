@@ -16,9 +16,9 @@ class PollForm(forms.ModelForm):
 class ChoiceForm(forms.ModelForm):
     class Meta:
         model = Choice
-        fields = ["option", "interview"]
+        fields = ["option"]
         widgets = {
-            "option": widgets.CheckboxInput(attrs={"cols": 20, "rows": 6}),
+            "option": widgets.Textarea(attrs={"cols": 20, "rows": 6}),
         }
 
 

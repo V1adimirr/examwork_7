@@ -9,7 +9,7 @@
     {% csrf_token %}
     <h6>Вы уверены что хотите удалить опрос: {{ poll.question }}</h6>
     <button type="submit" name="Yes" value="Yes">Да.</button>
-</form>
+</form><br/>
     <button type="submit">
         <a href="{% url "detail_polls_view" poll.pk %}"  style=" color : black; text-decoration: none" >Нет</a>
     </button>
