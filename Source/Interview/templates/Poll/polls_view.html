@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block title %}Опросы{% endblock %}
 {%  block nav %}
+    <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url "create_poll" %}">Создать опрос</a>
+        </li>
 {% endblock %}
 {% block content %}
     <br/><h3>Все опросы:</h3><br/>

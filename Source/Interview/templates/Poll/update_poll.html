@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% csrf_token %}
+
+{% block title %}Изменение опроса{% endblock %}
+
+{% block content %}
+    <h3>Изменение опроса</h3>
+    <form action="" method="post">
+        {% include "partial/form.html" with button_text="Изменить" %}
+    </form><br/>
+    <a href="{% url "polls_view" %}" class="btn btn-info" tabindex="-1" role="button"
+                           aria-disabled="true">На главную</a>
+{% endblock %}
