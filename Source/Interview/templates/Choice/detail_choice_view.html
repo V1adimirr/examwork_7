@@ -5,6 +5,8 @@
     {% for poll in Polls %}
         <p>{{ poll.option }}</p>
     {% endfor %}<br/>
+    <a href="{% url "delete_choice" poll.pk %}" class="btn btn-info" tabindex="-1" role="button"
+                           aria-disabled="true">Удалить  вариант</a>
     <a href="{% url "update_choice" poll.pk %}" class="btn btn-info" tabindex="-1" role="button"
                            aria-disabled="true">Изменить вариант</a>
     <a href="{% url "create_choice" poll.pk %}" class="btn btn-info" tabindex="-1" role="button"

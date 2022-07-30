@@ -1,4 +1,4 @@
-from django.views.generic import DetailView, CreateView, UpdateView
+from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from django.shortcuts import reverse, get_object_or_404
 from Interview.forms import ChoiceForm
 from Interview.models import Choice, Poll
@@ -31,6 +31,17 @@ class UpdateChoiceView(UpdateView):
     form_class = ChoiceForm
     template_name = "Choice/update_choice.html"
     model = Choice
+
+    def get_success_url(self):
+        return reverse("detail_polls_view", kwargs={"pk": self.object.interview.pk})
+
+
+class DeleteChoice(DeleteView):
+    template_name = "Choice/delete_choice.html"
+    model = Choice
+
+    def get(self, request, *args, **kwargs):
+        return super().delete(request, *args, **kwargs)
 
     def get_success_url(self):
         return reverse("detail_polls_view", kwargs={"pk": self.object.interview.pk})

@@ -1,6 +1,6 @@
 from django.urls import path
 
-from Interview.views.choise_view import DetailChoiceView, CreateChoiceView, UpdateChoiceView
+from Interview.views.choise_view import DetailChoiceView, CreateChoiceView, UpdateChoiceView, DeleteChoice
 from Interview.views.poll_views import IndexPollView, DetailPollView, CreatePollView, UpdatePollView, DeletePollView
 
 urlpatterns = [
@@ -12,4 +12,5 @@ urlpatterns = [
     path('choice/<int:pk>/detail/', DetailChoiceView.as_view(), name="detail_choice_view"),
     path('choice/<int:pk>/create/', CreateChoiceView.as_view(), name='create_choice'),
     path('choice/<int:pk>/update/', UpdateChoiceView.as_view(), name='update_choice'),
+    path('choice/<int:pk>/delete/', DeleteChoice.as_view(), name='delete_choice'),
 ]
